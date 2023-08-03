@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator Program</title>
+</head>
+<body>
+    <h2>Calculator Program</h2>
+    <table>
+        <tr>
+            <td>Insert First Value : </td>
+            <td><input type="number" id="num1txt"  required></td>     <!-- first textbox name as num1txt -->
+        </tr>
+        <tr>
+            <td>Insert Second Value : </td>
+            <td><input type="number" id="num2txt" required></td>        <!-- second textbox name as num2txt -->
+        </tr>
+
+        <tr>
+            <td><input type="button" value="Addition" onclick="Addition()"></td>                <!-- Addition button where Addition function assign at onclick event -->
+            <td> <input type="button" value="Subtraction" onclick="Subtraction()"></td>          <!-- Subtraction button where Subtraction function assign at onclick event -->
+            <td><input type="button" value="Multiplecation" onclick="Multiplecation()"></td>        <!-- Multiplecation button where Multiplecation function assign at onclick event -->
+        </tr>
+
+        <tr>
+            <td>Result</td>
+            <td><input type="number" id="resulttxt" readonly></td>     <!-- in this tab result will be show -->
+        </tr>
+    
+    </table>
+
+    <script>
+        //  Addition function for addition button
+
+        function Addition() {             
+            var n1 = document.getElementById("num1txt").value;
+            var n2 = document.getElementById("num2txt").value;
+            var result = parseInt(n1) + parseInt(n2);
+            document.getElementById("resulttxt").value = result;
+        }
+
+        // Subtraction function for Subtraction button 
+
+        function Subtraction() {
+            var n1 = document.getElementById("num1txt").value;
+            var n2 = document.getElementById("num2txt").value;
+            var result = (n1) - (n2);
+            document.getElementById("resulttxt").value = result;   
+        }
+
+        // Multiplecation function for Multiplecation button
+        
+        function Multiplecation() {
+            var n1 = document.getElementById("num1txt").value;
+            var n2 = document.getElementById("num2txt").value;
+            var result = (n1) * (n2);
+            document.getElementById("resulttxt").value = result;   
+        }
+        
+    </script>
+
+</body>
+</html>
