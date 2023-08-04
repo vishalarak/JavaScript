@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Imgae</title>
+    <style>
+        img{
+            width: 200px;
+            height: 300px;
+            border: 2px solid grey;
+        }
+    </style>
+</head>
+<body>
+    <h4>Change Images On Button</h4>
+
+    <div>
+        <img src="" alt="Image" id="img">
+    </div>
+    <br>
+    <button onclick="funStart()">Start</button>
+    <button onclick="funFast()">Fast</button>
+    <button onclick="funSlow()">Slow</button>
+    <button onclick="funStop()">Stop</button>
+
+
+    <script>
+        var img = document.getElementById("img");
+        var imgs = ['img1.jfif','img2.jfif','img3.jfif','img4.jfif','img5.jfif'];
+        var i ="";
+        function funShowImg(){
+            img.src = imgs[i];
+            i++;
+            if (i == imgs.length) {
+                i = 0;
+            }
+        }
+        function funStart(){
+            sI = window.setInterval("funShowImg()",500);
+        }
+        function funFast(){
+            sI = window.setInterval("funShowImg()",100);
+        }
+        function funSlow(){
+            sI = window.setInterval("funShowImg()",2000);
+        }
+        function funStop(){
+            window.clearInterval(sI);
+        }
+    </script>
+</body>
+</html>
