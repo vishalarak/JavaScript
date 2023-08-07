@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- Program for background color change on bottun click -->
+
+    <input type="text" id="txt1">
+    <br>
+    <input type="button" value="black" onclick="fun1()" id="btn">
+    <input type="button" value="red" onclick="funred()" id="redbtn">
+    <input type="button" value="blue" onclick="funblue()" id="bluebtn">
+    <input type="button" value="green" onclick="fungreen()" id="greenbtn">
+    <br>
+    <!-- set background color by typing in textbox -->
+    Enter the color : <input type="text" id="coltxt">
+    <br>
+    <input type="button" value="set color" onclick="fun()">
+
+
+    <script>
+        function fun1(){
+            var btn = document.getElementById("btn").value;
+            document.bgColor = (btn);
+        }
+        function funred(){
+            var redbtn = document.getElementById("redbtn").value;
+            document.bgColor = (redbtn);
+        }
+        function funblue(){
+            var bluebtn = document.getElementById("bluebtn").value;
+            document.bgColor = (bluebtn);
+        }
+        function fungreen(){
+            var greenbtn = document.getElementById("greenbtn").value;
+            document.bgColor = (greenbtn);
+        }
+
+        function fun(){
+            var color = document.getElementById("coltxt").value;
+            document.bgColor = (color);
+        }
+        
+
+    </script>
+</body>
+</html>
