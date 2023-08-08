@@ -1,0 +1,133 @@
+<html>
+<head>
+   
+    <style>
+        #d1{
+            display:none;
+            border:2px solid lightsalmon;
+        }
+        #d2{
+            display:none;
+        }
+    </style>
+</head>
+    <body>
+        <input type="button" id="btnDisplay" value="Display" >
+        <input type="button" id="btnInsert" value="Insert">
+        <table border="2">
+            <tr>
+                <td>Rollno</td>
+                <td>Name</td>
+                <td>Marks</td>
+            </tr>
+            </table>
+        <div id="d1"></div>
+        <div id="d2" >
+            Rollno:<input type="text" id="txtRno"><br>
+            Name:<input type="text" id="txtName"><br>
+            Marks:<input type="text" id="txtMarks"><br>
+            BDate:<input type="text" id="txtBdate"><br>
+            <input type="button" value="CreateRec" onclick="funNewRec()">
+        </div>
+    <script>
+    //DOM 0 btn.onclick=fun; btn.onclick=null
+    //DOm 2 btn.addEventListener("click",fun,false)
+    var btnDisplay=document.getElementById("btnDisplay");
+    btnDisplay.addEventListener("click",funDisplay,false);
+
+    var btnInsert=document.getElementById("btnInsert");
+    btnInsert.addEventListener("click",funInsert,false);
+
+    var d1=document.getElementById("d1");
+
+        function Student(rno,str,mks){
+            this.rollno=rno;
+            this.name=str;
+            this.marks=mks;
+        }
+        function Person(pid,name,dob){
+            this.pid=pid;
+            this.name=name;
+            this.bdate=dob;
+
+        }
+        studArr=[];
+        studArr.push(new Student(1,"AAA",10));
+        studArr.push(new Student(2,"BBB",20));
+        perArr=[];
+        perArr.push(new Person(1,"AAA","26/02/1999"));
+        perArr.push(new Person(2,"BBB","21/09/1997"));
+
+    function funDisplay(){
+        var str="";
+        //"<table border=2><tr><td>Rollno</td><td>Name</td><td>Marks</td><td></td></tr>";
+        for(i=0;i<studArr.length;i++){
+            str+="<tr><td>"+studArr[i].rollno+"</td><td>"+studArr[i].name+"</td><td>"+studArr[i].marks+"</td><td><a href=#>Details</a></td></tr>";
+        }
+       
+        document.querySelector("table").innerHTML+=str;
+
+        var newTd=document.createElement("td");
+        var newBtn=document.createElement("input");
+        newBtn.setAttribute("type","button");
+        newBtn.setAttribute("value","Delete");
+        newTd.appendChild(newBtn);
+
+        var xArr=document.querySelectorAll("table tr");
+        console.log(xArr);
+   
+        for(let j=1;j<xArr.length;j++){
+            xArr[j].appendChild(newTd);
+        }
+
+        //access the hylerlink
+        arr=document.getElementsByTagName("a");
+        for(j=0;j<arr.length;j++){
+            arr[j].addEventListener("click",funClick,false);
+
+        }
+    }
+    function funClick(event){
+        event.preventDefault();
+        //alert(event.defaultPrevented);
+        var td=event.currentTarget.parentNode;
+        var rno=td.parentNode.firstElementChild.textContent;
+        var txt="";
+        for(let i=0;i<studArr.length;i++){
+            if(studArr[i].rollno==rno){
+                txt+="<br>Rollno="+studArr[i].rollno+"<br>Name="+studArr[i].name+"<br>Marks="+studArr[i].marks;
+                break;
+            }
+           
+        }
+        for(let i=0;i<perArr.length;i++){
+            if(perArr[i].pid==rno){
+                txt+="<br>B'Date="+perArr[i].bdate;
+                break;
+            }
+           
+        }
+        d1.innerHTML=txt;
+        d1.style.display="block";
+
+    }
+    function funInsert(){
+        document.getElementById("d2").style.display="block";
+    }
+    function funNewRec(){
+        var txtRno=document.getElementById("txtRno").value;
+        var txtName=document.getElementById("txtName").value;
+        var txtMarks=document.getElementById("txtMarks").value;
+        var txtBdate=document.getElementById("txtBdate").value;
+
+        var stud=new Student(txtRno,txtName,txtMarks);
+        studArr.push(stud);
+        var per=new Person(txtRno,txtName,txtBdate);
+        perArr.push(per);
+        document.getElementById("d2").style.display="none";
+        funDisplay();
+    }
+    </script>
+   
+    </body>
+</html>
