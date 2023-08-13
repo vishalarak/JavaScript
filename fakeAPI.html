@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fake API</title>
+  </head>
+  <body>
+    <form action="https://api.onlinewebtutorblog.com/employees/" method="get">
+      ID : <input type="text" name="id" id="id" /><br />
+      <input type="submit" value="submit" />
+    </form>
+    <input type="button" value="Ajax Click" onclick="funClick()" />
+    <input type="button" value="Insert" onclick="funInsert()">
+    <table id="tbl" border="2">
+      <tr>
+        <td>ID</td>
+        <td>User Name</td>
+        <td>Email</td>
+        <td>Designation</td>
+      </tr>
+    </table>
+    <!-- REST and SOAP full form -->
+    <script>
+      var div = document.querySelector("div");
+      var tbl = document.getElementById("tbl");
+      var id = document.getElementById("id").value;
+
+      function funClick() {
+        var obj = new XMLHttpRequest();
+        obj.open("get","https://api.onlinewebtutorblog.com/employees/",true);
+        obj.send();
+        var arr = [];
+        obj.onreadystatechange = function () {
+          if (obj.readyState == 4 && obj.status == 200) {
+            var result = JSON.parse(obj.responseText);
+            // console.log(result);
+            arr = result.data;
+            display(arr);
+          }
+        }
+      }
+      function display(arr){
+        var str = " ";
+        
+        for (i = 0; i < arr.length; i++){
+          str += "<tr><td>"+arr[i].id+"</td><td>"+arr[i].username+"</td><td>"+arr[i].email+"</td><td>"+ arr[i].designation+"</tr>";
+        }
+        console.log(arr);
+        tbl.innerHTML += str; 
+      }
+
+      function funInsert(){
+        var data = JSON.stringify({
+          username : "test",
+          name : "test",
+          email : "test@gmail.com",
+          gender : "male",
+          designation : "test",
+          phone_number : "12346",
+          complete_adderss : "test"
+        });
+        // console.log(data);
+        var obj = new XMLHttpRequest();
+        obj.open("post","https://api.onlinewebtutorblog.com/employees/",true);
+        obj.send(data);
+        // console.log(obj);
+        obj.onreadystatechange = function(){
+          // console.log(obj);
+          if (obj.readyState == 4 && obj.readyState == 200){
+            var result = JSON.parse(obj.responseText);
+            console.log(result);
+            console.log(obj);
+            console.log(data);
+          }
+          else{
+            console.log("NA");
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
