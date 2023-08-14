@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array and it's Methods</title>
+  </head>
+  <body>
+    <script>
+      var arr = ["orange", "apple", "banana"];
+      // it will return a string
+      document.write("<br>toString = " + arr.toString());
+
+      // it will return a array length
+      document.write("<br> length = " + arr.length);
+
+      // it will join array using @ (you can add anything you want to add array in quotation marks)
+      document.write("<br> Join = " + arr.join("@"));
+
+      // it will sort an array in alphabatical manner
+      document.write("<br> Sort = " + arr.sort());
+    
+      // it will reverse the array
+      document.write("<br> Reverse = " + arr.reverse());
+
+      // it will delete the elements from array till given parameter and return new array it will not wffect on original array
+      document.write("<br> Slice = " + arr.slice(1));
+
+      // it will used to add and delete data from array using its parameter
+      // it will delete element from 1st possition till 1 st position 
+      document.write("<br> Splice = " + arr.splice(1,1));
+
+      // it will add element after 1st possition
+      document.write("<br>using splice() insert data = " + arr.splice(1,0,"mango","pinaple"));
+      document.write(arr);
+
+      // it will add data array at last possition
+      document.write("<br> push() = " + arr.push("greps"));
+
+      console.log(arr);
+
+      // it will delete element at last possition
+      document.write("<br> pop() = " + arr.pop());
+
+      console.log(arr);
+    </script>
+  </body>
+</html>
