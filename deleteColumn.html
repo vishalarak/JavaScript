@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Column</title>
+</head>
+<body>
+    <h4>Delete Column on click</h4>
+
+    <table id="tbl" border="2">
+        <tr>
+            <td>Roll No</td>
+            <td>Name</td>
+            <td>Marks</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>aaa</td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>bbb</td>
+            <td>20</td>
+        </tr>
+    </table>
+
+    <script>
+        var tbl = document.getElementById("tbl");
+        tbl.addEventListener("click",funClick,false);
+        var index;
+        function funClick(event){
+            var x = event.target.textContent;
+            var tr = event.target.parentNode;
+            var arr = tr.getElementsByTagName("td");
+            for (i = 0; i < arr.length; i++){
+                if (arr[i] == x){
+                    index = i;
+                }
+            }
+            console.log(arr);
+        }
+    </script>
+</body>
+</html>
