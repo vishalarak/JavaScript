@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Column on click</title>
+</head>
+<body>
+    <h4>Program for delete table Row</h4>
+    <table id="tbl" border="2">
+        <tr>
+            <td>Name</td>
+            <td>Marks</td>
+            <td>Passing Year</td>
+        </tr>
+        <tr>
+            <td>aaa</td>
+            <td>50</td>
+            <td>2022</td>
+        </tr>
+        <tr>
+            <td>bbb</td>
+            <td>60</td>
+            <td>2023</td>
+        </tr>
+    </table>
+
+    <script>
+        var tbl = document.getElementById("tbl");
+        tbl.addEventListener("click",funClick,false);
+
+        function funClick(event){
+            var x = event.target;
+            var tr = x.parentNode;
+            // tbl.removeChild(tr);
+            var td = tr.parentNode;
+            td.removeChild(tr);
+            console.log(tr);
+        }
+    </script>
+</body>
+</html>
