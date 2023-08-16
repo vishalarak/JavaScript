@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Elements in List Using Create Element Function</title>
+</head>
+<body>
+    <!-- Create a webpage for adding data from textbox in list using createElment function -->
+    <h4>Create on list and add elements using createElement function</h4>
+    Element Name : <input type="text" id="txtName"><br>
+    <input type="button" id="btn" value="Add" onclick="funAdd()">
+    <ol id="list"></ol>
+
+    <script>
+        var list = document.getElementById("list");
+        function funAdd(){
+            var txtName = document.getElementById("txtName").value;
+            var li = document.createElement("li");
+            var txt = document.createTextNode(txtName);
+            li.appendChild(txt);
+            list.appendChild(li);
+        }
+    </script>
+
+</body>
+</html>
