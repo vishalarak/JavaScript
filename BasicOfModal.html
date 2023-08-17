@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+<body>
+    <!-- <h3>Stack using array</h3> -->
+    <div class="container">
+        <input type="button" value="Singup" data-bs-toggle="modal" data-bs-target="#myModal">
+    </div>
+    <div id="myModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Singup</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal">0</button>
+                </div>
+                <div class="modal-body">
+                    Enter the name : <input type="text" id="txtName" placeholder="name"><br>
+                    Enter the Email ID : <input type="email" placeholder="email"><br>
+                    Enter the Phone No. : <input type="number" placeholder="number"><br>
+                    Enter the Password : <input type="password" placeholder="password"><br>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="fun()">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+function fun(){
+    var str = document.getElementById(txtName).value;
+    alert(str);
+}
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>
+<!-- Assgnment:
+creat the table and when you click on any row then popup has accur and there you can chage your marks only 
+
+Interveiew Question:
+change the value of array element without using any biultin function (possitive will goes at first value and negative will goes at last)
+for that you have use 2 loops 
+1 for check and 2nd for delete / swap the element of array -->
