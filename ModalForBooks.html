@@ -1,0 +1,110 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+       
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css&quot; rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+     
+       
+       
+    </head>
+    <body>
+        <div class="container">
+        <div id="container">
+
+        </div>
+        <input type="button" value="View Stock" onclick="funView()">
+        <input type="button" value="Add Stock" data-bs-target="#myModal" data-bs-toggle="modal">
+       
+        <table id="tbl1" class="table table-hover" >
+           
+        </table>
+        <form >
+            <input type="submit" value="Fetch API" formaction="https://fakestoreapi.com/products/1" formmethod="get">
+
+        </form>
+       
+    </div>
+
+        <div id="myModal" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Header</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                       Name:<input type="text" id="txtName"><br>
+                       Price:<input type="text" id="txtPrice"><br>
+                       Copies:<input type="text" id="txtCopies"><br>
+                       
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="funAdd()">Add</button>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            var sub=[{subId:1,subName:"history"},
+                     {subId:2,subName:"science"},
+                     {subId:3,subName:"comic"},
+                     {subId:4,subName:"biography"}];
+
+            var arr=[{subId:1,name:"Pawankhind",price:100,copies:10},
+                     {subId:1,name:"Khosla",price:200,copies:0},
+                     {subId:2,name:"StarJournal",price:500,copies:9},
+                     {subId:2,name:"Robotics",price:400,copies:11},
+                     {subId:1,name:"Swami",price:100,copies:9}
+                    ];
+                    var str="<option>select</option>";
+            for(i=0;i<sub.length;i++){
+                str+="<option value="+sub[i].subId+">"+sub[i].subName+"</option>";
+
+            }
+            document.getElementById("container").innerHTML="<select>"+str+"</select>";
+        var tbl1=document.getElementById("tbl1");
+            function funView(){
+            var opId=document.querySelector("#container select").value;
+            var str1="<tr><td>Name</td><td>Price</td><td>Available Copies</td><td>Status</td></tr>";
+            for(i=0;i<arr.length;i++){
+                var msg="";
+                var st="";
+                if(arr[i].subId==opId){
+                    var x=arr[i].copies;
+                    if(x>=10){
+                        msg="Sufficient";
+                        st="background-color:green;color:white";
+                    }
+                    else if(x==0){
+                        msg="out of stock!!";
+                        st="background-color:orange;color:white";
+                    }
+                    else{
+                        msg="Place An Order..";
+                        st="background-color:red;color:white";
+                    }
+                    str1+="<tr><td>"+arr[i].name+"</td><td>"+arr[i].price+"</td><td>"+arr[i].copies+"</td><td style="+st+">"+msg+"</td></tr>";
+                }
+            }
+            tbl1.innerHTML=str1;
+        }
+        function funAdd(){
+            txtName=document.getElementById("txtName").value;
+            txtPrice=document.getElementById("txtPrice").value;
+            txtCopies=document.getElementById("txtCopies").value;
+            opId=document.querySelector("#container select").value;
+
+            obj={subId:opId,name:txtName,price:txtPrice,copies:txtCopies};
+            console.log(obj);
+            arr.push(obj);
+            funView();
+        }
+        function funApi(){
+            alert("");
+        }
+    </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js&quot; integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+       
+    </body>
+</html>
