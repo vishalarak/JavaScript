@@ -5,3 +5,17 @@
 h3:hover{
     color: red;
 }
+ul{
+    
+    list-style: none;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    height: 50px;
+}
+li{
+    margin: 2px 5px;
+}
+li:hover{
+    color: red;
+}
