@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Table for showing data on click</title>
+</head>
+
+<body>
+    <!-- Create a webpage add one table and onclick show the information -->
+    <table border="2" id="tbl">
+        <tr>
+            <th>Name</th>
+            <th>City</th>
+            <th>Mob. No</th>
+        </tr>
+        <tr>
+            <td>AAA</td>
+            <td>ZZZ</td>
+            <td>111</td>
+        </tr>
+        <tr>
+            <td>BBB</td>
+            <td>YYY</td>
+            <td>222</td>
+        </tr>
+    </table>
+    <br>
+    <div id="div1"></div>
+
+    <script>
+        var tbl = document.getElementById("tbl");
+        var div1 = document.getElementById("div1");
+        tbl.addEventListener("click", funDisplay, false);
+        function funDisplay(event) {
+            var x = event.target;
+            var tr = x.parentNode;
+            var arr = tr.getElementsByTagName("td");
+            div1.innerHTML = "<br>Rollno=" + arr[0].textContent + "<br>Name=" + arr[1].textContent + "<br>Marks=" + arr[2].textContent;
+
+        }
+
+    </script>
+</body>
+
+</html>
