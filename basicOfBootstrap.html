@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Basic of Bootstrap</title>
     <!-- Bootstrap lin -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- Bootstrap link for font -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
 </head>
-    <style>
-        /* in HTML first preference will always goes to user define css and then bootstrap */
-        /* this is user define css */
-        /* .row>div{
+<style>
+    /* in HTML first preference will always goes to user define css and then bootstrap */
+    /* this is user define css */
+    /* .row>div{
             width: 100px;
             height: 50px;
             border: 2px solid red;
         } */
-    </style>
+</style>
 </head>
+
 <body>
     <h2>Basic of Bootstrap</h2>
 
@@ -45,7 +48,7 @@
     <p class="display-6 m-4">Typography :</p>
     <div class="container-fluid bg-gradient border">
         <p class="display-6">This is p tag using display class of bootstrap</p>
-        <mark>This is Mark tag</mark>  <!--THis will highlighted-->
+        <mark>This is Mark tag</mark> <!--THis will highlighted-->
         <b>This is bold tag</b>
         <p>This is <strong>Strong </strong>tag</p>
         <small>This is small tag</small>
@@ -53,7 +56,7 @@
         <em>This is em tag</em>
         <code>This is code tag</code>
         <ins>This is ins tag</ins>
-        <p>This is X <sup>2</sup> This is superset tag</p>   
+        <p>This is X <sup>2</sup> This is superset tag</p>
         <p>This is x <sub>2</sub> This is subset tag</p>
         <p class="text-lowercase">THIS IS P TAG USING TEXT-LOWERCASE CLASS</p>
         <p class="text-uppercase">this p tag using text-uppercase class</p>
@@ -65,12 +68,14 @@
         <p class="text-danger">This is p tag using text-color class "text-danger"</p>
         <p class="text-success">This is p tag using text-color class "text-success"</p>
         <p class="text-muted">This is p tag using text-color class "text-muted"</p>
-    </div>   
-    
+    </div>
+
     <h3 class="m-4">Tbale class : </h3>
     <div class="container bg-light border-2">
-        <p>In Bootstrap there are multiple classes available for table color like : primary,secondory,warning,success,danger,info,light,dark</p>
-        <p>In Bootstrap there are deferent types of borders available like : table-striped,table-bordered,table-borderless,table-hover </p>
+        <p>In Bootstrap there are multiple classes available for table color like :
+            primary,secondory,warning,success,danger,info,light,dark</p>
+        <p>In Bootstrap there are deferent types of borders available like :
+            table-striped,table-bordered,table-borderless,table-hover </p>
         <table class="table table-dark m-2 table-hover table-striped">
             <tr>
                 <td>Roll No</td>
@@ -99,6 +104,69 @@
     <h6 class="m-4">Globe Icon:
         <i class="bi-globe"></i>
     </h6>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <div>
+        <h3>Bootstrap Button</h3>
+        <p>button and text color</p>
+        <input type="button" value="Btn1" class="btn btn-primary text-warning btn-link">
+        <p class="m-2">outline button</p>
+        <input type="button" value="Btn2" class="btn btn-outline-dark">
+        <p class="m-2">sizeable button there are defferent types of buttons like : btn-lg, btn-info, btn-sm</p>
+        <input type="button" value="Btn3" class="btn btn-info">
+        <p class="m-2">achore tag as button</p>
+        <a href="#" class="btn btn-dark">achore tag</a>
+        <p>spinner class</p>
+        <span class="spinner-border"></span>
+        <p>spinner grow</p>
+        <span class="spinner-grow bg-primary"></span>
+        <p>grid button</p>
+        <div class="d-grid gap-3"> <!--here gap is use for the space between buttons-->
+            <input type="button" value="Btn4" class="btn btn-danger">
+            <input type="button" value="Btn5" class="btn btn-primary">
+        </div>
+    </div>
+
+    <div class="btn-group-vertical m-2 gap-2 d-grid">
+        <input type="button" value="Btn1" class="btn btn-dark">
+        <input type="button" value="Btn2" class="btn btn-outline-info">
+        <input type="button" value="Btn3" class="btn btn-outline-danger">
+    </div>
+
+    <div>
+        <h3>Cards in bootstrap</h3>
+        <!-- for multimule cards use "card-group" class and in that card class add other cards -->
+        <div class="card-group bg-dark border">
+                <div class="card m-2" style="width: 150px;">
+                    <img src="Assets/106774.jpg" alt="IMG" class="card-img">
+                    <div class="card-body">
+                        <p class="card-title">card title</p>
+                        <p class="card-text">card content </p>
+                        <input type="button" value="Btn1" class="btn btn-outline-primary">
+                    </div>
+                </div>
+                <div class="card m-2" style="width: 150px;">
+                    <img src="Assets/106774.jpg" alt="IMG" class="card-img">
+                    <div class="card-body">
+                        <p class="card-title">card title</p>
+                        <p class="card-text">card content </p>
+                        <input type="button" value="Btn1" class="btn btn-outline-primary">
+                    </div>
+                </div>
+                <div class="card m-2" style="width: 150px;">
+                    <img src="Assets/106774.jpg" alt="IMG" class="card-img">
+                    <div class="card-body">
+                        <p class="card-title">card title</p>
+                        <p class="card-text">card content </p>
+                        <input type="button" value="Btn1" class="btn btn-outline-primary">
+                    </div>
+                </div>
+                
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
