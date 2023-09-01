@@ -26,21 +26,6 @@
         </tr>
     </table>
 
-    <script>
-        var tbl = document.getElementById("tbl");
-        tbl.addEventListener("click",funClick,false);
-        var index;
-        function funClick(event){
-            var x = event.target.textContent;
-            var tr = event.target.parentNode;
-            var arr = tr.getElementsByTagName("td");
-            for (i = 0; i < arr.length; i++){
-                if (arr[i] == x){
-                    index = i;
-                }
-            }
-            console.log(arr);
-        }
-    </script>
+    <script src="Js file/deleteColumn.js"></script>
 </body>
 </html>
