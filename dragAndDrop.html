@@ -1,94 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drag & Drop event</title>
     <style>
-        div,
-        img {
-            padding: 10px;
-            height: 80%;
-            width: 80%;
-
-        }
-
-        div {
-            width: 150px;
-            height: 150px;
-            border: 2px solid green;
-        }
+      div {
+        height: 200px;
+        width: 200px;
+        border: 2px solid grey;
+      }
+      img {
+        height: 180px;
+        width: 180px;
+      }
     </style>
-    <script>
-        function dragStartHandler(event) {
-            event.dataTransfer.setData("text/plain", event.currentTarget.id);
-        }
-
-        function dragHandler(event) {
-            event.preventDefault();
-        }
-
-        function dropHandler(event) {
-            var obj = event.dataTransfer.getData("text/plain");
-            console.log(obj);
-            event.currentTarget.appendChild(document.getElementById(obj));
-        }
-    </script>
-</head>
-
-<body>
-    <div ondragover="dragHandler(event)" ondrop="dropHandler(event)">
-        <img src="./college-students-studying.jpg" alt="IMG" draggable="true" id="img1" ondragstart="dragStartHandler(event)">
+  </head>
+  <body>
+    <div ondragover="dragOverHandler(event)" ondrop="dropHandler(event)">
+      <img src="Assets/106774.jpg" alt="Image" id="img" draggable="true" ondragstart="dragStartHandler(event)"/>
     </div>
-    <br>
-    <div ondragover="dragHandler(event)" ondrop="dropHandler(event)">
+    <div ondragover="dragOverHandler(event)" ondrop="dropHandler(event)"></div>
+
+    <div>
+      <ul ondragstart="dragstart(event)">
+        <li draggable="true" data-marks="60">AAA</li>
+        <li draggable="true" data-marks="70">BBB</li>
+        <li draggable="true" data-marks="80">CCC</li>
+      </ul>
     </div>
-    <br>
-    <div ondragover="dragOverHandlerli(event)" ondrop="dropHandlerli(event)">
-        <ul id="li1" ondragstart="dragStartHandlerli(event)" draggable="true" >
-            <li   data-price=100>Apple</li>
-            <li   data-price=200>Banana</li>
-            <li   data-price=300>Mango</li>
-        </ul>
-    </div>
-    <br>
-    <div id="div1" ondrop="dropHandlerli(event)" ondragover="dragOverHandlerli(event)"></div>
-    <br>
-    <div id="div2" ondrop="dropHandlerli(event)" ondragover="dragOverHandlerli(event)" ></div>
-    <script>
-
-        function dragStartHandlerli(event) {
-            event.dataTransfer.setData("text/plain", event.target.textContent);
-            event.dataTransfer.setData("text/data-price", event.target.dataset.price);
-            // console.log(event.target.textContent);
-        }
-
-        function dragOverHandlerli(event) {
-            event.preventDefault();
-
-        }
-
-        function dropHandlerli(event) {
-
-            // event.preventDefault();
-            var txt = event.dataTransfer.getData("text/plain");
-            var price = event.dataTransfer.getData("text/data-price");
-            
-            var obj = event.dataTransfer.getData("text/plain");
-            var x = event.currentTarget.id;
-
-            if (x == div1) {
-                event.currentTarget.innerHTML += "<li>" + txt + "</li>";
-                console.log(txt);
-                x.parentNode.removeChild(x);
-            }
-            else if (x == div2) {
-                event.currentTarget.innerHTML += "<li>" + price + "</li>";
-                event.currentTarget.appendChild(document.getElementById(obj));
-            }
-        }
-    </script>
-</body>
-
+    <div id="d1" ondragover="dragover(event)" ondrop="drop(event)" ondragstart="dragstart(event)"> Name : </div>
+    <div id="d2" ondragover="dragover(event)" ondrop="drop(event)">Marks:</div>
+    <script src="Js file/dragAndDrop.js"></script>
+  </body>
 </html>
