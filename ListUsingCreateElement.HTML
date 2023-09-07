@@ -13,16 +13,7 @@
     <input type="button" id="btn" value="Add" onclick="funAdd()">
     <ol id="list"></ol>
 
-    <script>
-        var list = document.getElementById("list");
-        function funAdd(){
-            var txtName = document.getElementById("txtName").value;
-            var li = document.createElement("li");
-            var txt = document.createTextNode(txtName);
-            li.appendChild(txt);
-            list.appendChild(li);
-        }
-    </script>
+    <script src="Js file/listUsingCreateElement.js"></script>
 
 </body>
 </html>
