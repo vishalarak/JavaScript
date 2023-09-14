@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Background Color</title>
+    <script src="Assets/code.jquery.com_jquery-3.7.1.js"></script>
+    <style>
+        div{
+            height: 200px;
+            width: 200px;
+            border: 2px solid grey;
+        }
+    </style>
+</head>
+<body>
+    <div style="background-color: red;"></div><br>
+    <div style="background-color: green;"></div><br>
+    <div style="background-color: blue;"></div>
+
+    <script>
+        $(document).ready(function(){
+            $("div").on("mouseover",function(event){
+                var bgColor = $(this).css("background-color");
+                console.log(event.type);
+                console.log(bgColor);
+                $("body").css("background-color",bgColor)
+            })
+
+            $("div").on("mouseout",function(event){
+                console.log(event.type);
+                $("body").css("background-color","transparent")
+            })
+        })
+    </script>
+</body>
+</html>
