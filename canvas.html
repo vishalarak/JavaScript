@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Canvas-Tag</title>
+
+    <style>
+      canvas {
+        height: 400px;
+        width: 400px;
+        border: 2px solid grey;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas></canvas>
+
+    <script>
+      var canvas = document.querySelector("canvas");
+      var ctx = canvas.getContext("2d");
+
+      // //rectangle
+      // ctx.fillStyle = "red";
+      // ctx.fillRect(100,40,100,40);
+
+      // ctx.strokeStyle = "green";
+      // ctx.strokeRect(10,40,80,30);
+
+      // //line
+      // ctx.fillStyle = "red";
+      // ctx.strokeStyle = "blue";
+      // ctx.lineWidth = "4";
+      // ctx.moveTo(150,120);
+      // ctx.lineTo(250,90);
+      // ctx.lineTo(130,70);
+      // ctx.closePath();
+      // ctx.fill();
+      // ctx.stroke();
+
+      //Circle
+      // ctx.strokeStyle = "blue";
+
+      ctx.beginPath();
+      ctx.arc(140, 80, 50, 0, 5 * Math.PI);
+      ctx.fillStyle = "yellow";
+      ctx.fill();
+      // ctx.stroke();
+      ctx.closePath();
+
+      // Text
+      ctx.font = "20px Impact";
+      ctx.strokeStyle="blue";
+      ctx.fillStyle = "black";
+      ctx.textAlign = "center";
+      // ctx.lineJoin=2;
+      ctx.strokeText("Vishal",140,70);
+      ctx.fillStyle="blue";
+      ctx.fillText("Vishal", 180, 250);
+    </script>
+  </body>
+</html>
