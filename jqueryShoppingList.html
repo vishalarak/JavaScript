@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping List using jquery</title>
+    <script src="Assets/code.jquery.com_jquery-3.7.1.js"></script>
+  </head>
+  <body>
+    Product Name : <input type="text" id="txtName" /><br />
+    Product Price : <input type="text" id="txtPrice" /><br />
+    <input type="button" value="Save" id="btnSave" />
+    <input type="button" value="Update" id="btnUpdate">
+    <input type="button" value="Delete" id="btnDelete">
+    <ol id="list"></ol>
+
+    <script>
+      $(document).ready(function () {
+        display();
+        function Product(name, price) {
+          this.name = name;
+          this.price = price;
+        }
+        $("#btnSave").click(function () {
+          var name = $("#txtName").val();
+          var price = $("#txtPrice").val();
+          console.log(name, price);
+          var obj = new Product(name, price);
+          arr.push(obj);
+          var objArr = JSON.stringify(arr);
+          console.log(objArr);
+          var x = localStorage.setItem("ShoppingList", objArr);
+        //   console.log(x);
+          display();
+        });
+
+        function display() {
+          var str = "";
+          var val = JSON.parse(localStorage.getItem("ShoppingList"));
+
+          for (i = 0; i < val.length; i++) {
+            str += "<li>" + val[i].name + "*" + val[i].price + "</li>";
+          }
+
+          $("#list").html(str);
+        }
+
+        $("#btnUpdate").click(function(){
+          var arrUp = JSON.parse(localStorage.getItem("ShoppingList"));
+          var UpName = $("#txtName").val();
+          var UpPrice = $("#txtPrice").val();
+          console.log(UpName);
+          console.log(UpPrice);
+
+          $.each(arrUp,function(i){
+            if(arrUp[i].name == UpName){
+              arrUp[i].price = UpPrice; 
+            }
+          });
+
+          localStorage.setItem("ShoppingList",JSON.stringify(arrUp));
+          display();
+        })
+
+        $("#btnDelete").click(function(){
+          var arrDel = JSON.parse(localStorage.getItem("ShoppingList"));
+          console.log(arrDel);
+          var delName = $("#txtName").val();
+          console.log(delName);
+          $.each(arrDel, function(i){
+            if(arrDel[i].name == delName){
+              arrDel.splice(i,1);
+            }
+          })
+          localStorage.setItem("ShoppingList",JSON.stringify(arrDel));
+          display();
+        })
+
+        $("#list").click(function(){
+            var li = event.target.textContent;
+            console.log(li);
+            var strArr = li.split("*");
+            $("#txtName").val(strArr[0]);
+            $("#txtPrice").val(strArr[1]);
+        })
+
+        function funLoad(){
+            if (localStorage.ShoppingList == undefined){
+                arr = [];
+            }
+            else{
+                arr = JSON.parse(localStorage.ShoppingList);
+            }
+        }
+        funLoad();
+
+      });
+    </script>
+  </body>
+</html>
